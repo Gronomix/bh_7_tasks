@@ -25,15 +25,27 @@ from math import pi
 from abc import ABC, abstractmethod
 
 class Shape:
+    a: int
+    b: int
+    r: int
+
+    def __init__(self, a, b, r):
+        self.a = a
+        self.b = b
+        self.r = r
+
 
     @abstractmethod
-    def get_perimeter(self):
-        pass
+    def get_perimeter(self, a, b):
+        perimeter = (2 * a) + (2 * b)
+        return perimeter
     @abstractmethod
-    def get_square(self):
-        pass
+    def get_square(self, r):
+        square = pi * r ** 2
+        return square
 
 class Circle(Shape):
+    get_perimeter = (2 * a) + (2 * b)
     pass
 
 class Rectangle(Shape):
