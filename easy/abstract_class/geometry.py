@@ -29,10 +29,12 @@ class Shape:
     b: int
     r: int
 
+
     def __init__(self, a, b, r):
         self.a = a
         self.b = b
         self.r = r
+
 
 
     @abstractmethod
@@ -45,13 +47,61 @@ class Shape:
         return square
 
 class Circle(Shape):
-    get_perimeter = (2 * a) + (2 * b)
-    pass
+
+
+
+    def __init__(self):
+        super().__init__(r)
+
+
+
+    def get_perimeter(self):
+
+        super().get_square()
+        perimeter = 2 * pi * r
+        square = pi * r ** 2
+        return perimeter, square
+
 
 class Rectangle(Shape):
 
-    pass
+    def __init__(self):
+        super().__init__(a, b)
+
+    def get_perimeter(self, a, b):
+        super().get_perimeter()
+
+        perimeter = (2 * a) + (2 * b)
+
+        return perimeter
+
+    def get_square(self, a, b):
+        super().get_square()
+        square = a * b
+        return square
+
+
+
 
 class Square(Rectangle):
-    pass
 
+    def __init__(self):
+        super().__init__(a)
+
+
+    def get_perimeter(self, a):
+        super().get_perimeter()
+
+        perimeter = 4 * a
+
+        return perimeter
+
+    def get_square(self, a):
+
+        super().get_square()
+        square = a ** 2
+        return square
+
+circle = Rectangle(2, 3, 4)
+print(circle)
+circle.get_perimeter()
