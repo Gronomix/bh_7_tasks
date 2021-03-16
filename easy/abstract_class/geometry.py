@@ -22,3 +22,24 @@
 Площадь = a ** 2
 """
 from math import pi
+from abc import ABC, abstractmethod
+
+class Shape:
+
+    @abstractmethod
+    def get_perimeter(self):
+        pass
+    @abstractmethod
+    def get_square(self):
+        pass
+
+class Circle(Shape):
+    pass
+
+class Rectangle(Shape):
+
+    pass
+
+class Square(Rectangle):
+    pass
+
