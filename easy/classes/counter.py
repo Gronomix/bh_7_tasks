@@ -21,37 +21,48 @@
 
 class Counter:
 
+    value: int
+    num: int
+
     def __init__(self, value=0, num=1, start=None, end=None):
         self.value = value
         self.num = num
         self.start = start
         self.end = end
 
-    def increase(self, num=1):
+    def increase(self):
+        if self.value == self.start:
+            if self.value < self.end:
 
-        if self.value < self.end:
-            self.value += num
+                self.value += self.num
+                value = self.value
+                return value
         else:
             raise StopIteration
 
-    def decrease(self, num=1):
+    def decrease(self):
 
-        if self.value > self.end:
-            self.value -= num
+        if self.value == self.end:
+
+            self.value -= self.num
         else:
             raise StopIteration
 
     def __iter__(self):
-        if self.increase <= 0:
-            return self.increase
-        else:
-            return self.decrease
+        return self.increase
 
     def __next__(self):
-        return self
+        return self.increase
 
 
 
-count = Counter(start=0, end= 30)
-print(count)
-mycount = iter(count)
+count = Counter(start=0, end=6)
+
+print(next(count))
+print(next(count))
+print(next(count))
+print(next(count))
+print(next(count))
+
+
+
