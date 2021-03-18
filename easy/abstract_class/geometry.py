@@ -26,32 +26,26 @@ from abc import ABC, abstractmethod
 
 
 class Shape(ABC):
-    a: int
-    b: int
-    r: int
-
-    def __init__(self, a, b, r):
-        self.a = a
-        self.b = b
-        self.r = r
 
     @abstractmethod
-    def get_perimeter(self):
+    def get_perimeter(self, *args, **kwargs):
         raise NotImplemented
 
     @abstractmethod
-    def get_square(self):
+    def get_square(self, *args, **kwargs):
         raise NotImplemented
 
 
 class Circle(Shape):
 
-    def __init__(self, a, b,  r):
-        super().__init__(a, b, r)
+    r: int
+
+    def __init__(self, r):
+
+        self.r = r
 
     def get_perimeter(self, r):
 
-        super().get_perimeter()
         perimeter = 2 * pi * r
 
         return perimeter
@@ -64,17 +58,20 @@ class Circle(Shape):
 
 class Rectangle(Shape):
 
-    def __init__(self, a, b, r):
-        super().__init__(a, b, r)
+    a: int
+    b: int
+
+    def __init__(self, a, b):
+        self.a = a
+        self.b = b
 
     def get_perimeter(self, a, b):
-        super().get_perimeter()
+
         perimeter = (2 * a) + (2 * b)
 
         return perimeter
 
     def get_square(self, a, b):
-        super().get_square()
 
         square = a * b
         return square
@@ -82,8 +79,9 @@ class Rectangle(Shape):
 
 class Square(Rectangle):
 
-    def __init__(self, a, b, r):
-        super().__init__(a, b, r)
+    def __init__(self, a):
+        super().__init__(a)
+        self.a = a
 
     def get_perimeter(self, a):
         super().get_perimeter()
@@ -99,8 +97,14 @@ class Square(Rectangle):
         return square
 
 
-gp = Square(1, 2, 2)
-print(gp)
-Square()
+gs = Circle
+gs.get_perimeter(1, r=2)
+print(gs.get_perimeter(1, r=2))
+gr = Rectangle
+gr.get_perimeter(1, 2, 3)
+gr.get_square(1, 2, 3)
+print(gr.get_perimeter(1, 2, 3), gr.get_square(1, 2, 3))
+gsq = Square
+print(gsq.get_square())
 
 
