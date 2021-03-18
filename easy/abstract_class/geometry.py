@@ -79,12 +79,10 @@ class Rectangle(Shape):
 
 class Square(Rectangle):
 
-    def __init__(self, a):
-        super().__init__(a)
-        self.a = a
+    def __init__(self, a, b):
+        super().__init__(a, b)
 
     def get_perimeter(self, a):
-        super().get_perimeter()
 
         perimeter = 4 * a
 
@@ -92,7 +90,6 @@ class Square(Rectangle):
 
     def get_square(self, a):
 
-        super().get_square()
         square = a ** 2
         return square
 
