@@ -27,43 +27,46 @@ class Animals(ABC):
         return self
 
 
-
-
 class Cat(Animals):
 
-    def __init__(self, name):
-        super(Cat, self).__init__(name)
+    def __init__(self, name, a_type):
+        super(Cat, self).__init__(name, a_type)
         self.name = name
+        self.a_type = a_type
 
-    def says(self, name):
-        print(f'Кошка {name} говорит Мяу')
+    def says(self, name, a_type):
+        print(f' {a_type} Кошка {name} говорит Мяу')
+
 
 class Dog(Animals):
 
-    def __init__(self, name):
-        super(Dog, self).__init__(name)
+    def __init__(self, name, a_type):
+        super(Dog, self).__init__(name, a_type)
         self.name = name
+        self.a_type = a_type
 
-    def says(self, name):
-        print(f'Собака {name} говорит ГАВ')
+    def says(self, name, a_type):
+        print(f'{a_type} собака {name} говорит ГАВ')
+
 
 class Cow(Animals):
 
-    def __init__(self, name):
-        super(Cow, self).__init__(name)
+    def __init__(self, name, a_type):
+        super(Cow, self).__init__(name, a_type)
         self.name = name
+        self.a_type = a_type
 
-    def says(self, name):
-        print(f'Корова {name} говорит МУУУУ')
+    def says(self, name, a_type):
+        print(f' {a_type} Корова {name} говорит МУУУУ')
 
 
-cow = Cow('')
-cat = Cat('')
-dog = Dog('')
+cow = Cow('Машка', 'Дикая')
+cat = Cat('Шарик', 's')
+dog = Dog('Феня', 'Домашняя')
 
-print(cow.says('Машка'))
-print(dog.says('Шарик'))
-print(cat.says('Феня'))
+print(cow.says('Машка', 'Дикая'))
+print(dog.says('Шарик', 'Домашняя'))
+print(cat.says('Феня', 'Домашняя'))
 
 
 
