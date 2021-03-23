@@ -12,6 +12,8 @@
 """
 
 from abc import ABC, abstractmethod
+
+
 class Animals(ABC):
     name: str
     a_type: str
@@ -21,21 +23,47 @@ class Animals(ABC):
         self.a_type = a_type
 
     @abstractmethod
-    def says(cls, name,):
-        cls.name = name
+    def says(self, name,):
+        return self
 
 
 
 
 class Cat(Animals):
 
-    print(f'Кошка {name} говорит Мяу')
+    def __init__(self, name):
+        super(Cat, self).__init__(name)
+        self.name = name
+
+    def says(self, name):
+        print(f'Кошка {name} говорит Мяу')
 
 class Dog(Animals):
+
+    def __init__(self, name):
+        super(Dog, self).__init__(name)
+        self.name = name
+
+    def says(self, name):
         print(f'Собака {name} говорит ГАВ')
 
 class Cow(Animals):
-     print(f'Корова {name} говорит МУУУУ')
+
+    def __init__(self, name):
+        super(Cow, self).__init__(name)
+        self.name = name
+
+    def says(self, name):
+        print(f'Корова {name} говорит МУУУУ')
+
+
+cow = Cow('')
+cat = Cat('')
+dog = Dog('')
+
+print(cow.says('Машка'))
+print(dog.says('Шарик'))
+print(cat.says('Феня'))
 
 
 
