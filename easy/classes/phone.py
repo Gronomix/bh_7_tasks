@@ -38,7 +38,7 @@ class Phone:
         return print(a), print(self.brand + self.model + str(self.year_of_issue))
 
     def __str__(self):
-        return f'Информация об устройстве:\n Бренд: {self.brand}\n Модель: {self.model}\n ' \
+        return f'\n Информация об устройстве:\n Бренд: {self.brand}\n Модель: {self.model}\n ' \
                f'Год выпуска: {self.year_of_issue}'
 
 
