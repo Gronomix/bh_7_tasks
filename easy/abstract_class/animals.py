@@ -23,7 +23,7 @@ class Animals(ABC):
         self.a_type = a_type
 
     @abstractmethod
-    def says(self, name,):
+    def says(self, name, a_type):
         return self
 
 
