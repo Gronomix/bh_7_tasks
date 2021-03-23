@@ -17,3 +17,34 @@
 Модель: {}
 Год выпуска: {}
 """
+
+
+class Phone:
+
+    brand: str
+    model: str
+    year_of_issue: int
+
+    def __init__(self, brand, model, year_of_issue):
+        self.brand = brand
+        self.model = model
+        self.year_of_issue = year_of_issue
+
+    def receive_call(self, name):
+        print(f'Звонит {name}')
+
+    def get_info(self, brand, model, year_of_issue):
+        a = (brand, model, year_of_issue)
+        return print(a), print(self.brand + self.model + str(self.year_of_issue))
+
+    def __str__(self):
+        return f'Информация об устройстве:\n Бренд: {self.brand}\n Модель: {self.model}\n ' \
+               f'Год выпуска: {self.year_of_issue}'
+
+
+phone = Phone('Samsung', ' A_51 ', 2001)
+print(phone.receive_call('Водитель Веры\n'))
+print(phone.get_info('Samsung', ' A_51 ', 2001))
+print(phone.__str__())
+
+
