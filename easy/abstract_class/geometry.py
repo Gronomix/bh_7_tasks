@@ -28,11 +28,11 @@ from abc import ABC, abstractmethod
 class Shape(ABC):
 
     @abstractmethod
-    def get_perimeter(self, *args, **kwargs):
+    def get_perimeter(self):
         raise NotImplemented
 
     @abstractmethod
-    def get_square(self, *args, **kwargs):
+    def get_square(self):
         raise NotImplemented
 
 
@@ -51,7 +51,7 @@ class Circle(Shape):
         return perimeter
 
     def get_square(self, r):
-        super().get_square()
+
         square = pi * r ** 2
         return square
 
@@ -79,8 +79,9 @@ class Rectangle(Shape):
 
 class Square(Rectangle):
 
-    def __init__(self, a, b):
-        super().__init__(a, b)
+    def __init__(self, a):
+        super(Square, self).__init__(a)
+        self.a = a
 
     def get_perimeter(self, a):
 
@@ -102,6 +103,6 @@ gr.get_perimeter(1, 2, 3)
 gr.get_square(1, 2, 3)
 print(gr.get_perimeter(1, 2, 3), gr.get_square(1, 2, 3))
 gsq = Square
-print(gsq.get_square())
+print(gsq.get_square(1, 2))
 
 
