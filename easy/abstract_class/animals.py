@@ -61,7 +61,7 @@ class Cow(Animals):
 
 
 cow = Cow('Машка', 'Дикая')
-cat = Cat('Шарик', 's')
+cat = Cat('Шарик', 'Домашняя')
 dog = Dog('Феня', 'Домашняя')
 
 print(cow.says('Машка', 'Дикая'))

@@ -106,3 +106,4 @@ gsq = Square
 print(gsq.get_square(1, 2))
 
 
+
