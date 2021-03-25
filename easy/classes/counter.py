@@ -24,45 +24,41 @@ class Counter:
     value: int
     num: int
 
-    def __init__(self, value=0, num=1, start=None, end=None):
+    def __init__(self, value=0, num=1):
         self.value = value
         self.num = num
-        self.start = start
-        self.end = end
 
-    def increase(self):
-        if self.value == self.start:
-            if self.value < self.end:
+    def increase(self, num=1):
 
-                self.value += self.num
-                value = self.value
-                return value
+        if self.num is not None:
+            self.value += num
+
+            return self.value
         else:
             raise StopIteration
 
-    def decrease(self):
+    def decrease(self, num=1):
 
-        if self.value == self.end:
+        if self.num is not None:
+            self.value -= num
 
-            self.value -= self.num
+            return self.value
         else:
             raise StopIteration
 
     def __iter__(self):
-        return self.increase
+        return self
 
     def __next__(self):
-        return self.increase
+        return self
 
 
 
-count = Counter(start=0, end=6)
+count = Counter()
 
-print(next(count))
-print(next(count))
-print(next(count))
-print(next(count))
-print(next(count))
-
-
+print(count.decrease())
+print(count.increase())
+print(count.increase())
+print(count.increase())
+print(count.decrease())
 
