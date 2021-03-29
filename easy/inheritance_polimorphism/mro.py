@@ -2,7 +2,7 @@
 Описать класс Cars. Реализовать метод print_fuel_type, который будет генерировать
 raise NotImplementedError
 
-Описать класс PetrolMotorCars, который наследуется от Cars. Реализовать метод
+Описать класс print_fuel_type, который наследуется от Cars. Реализовать метод
 print_fuel_type, который будет печатать "Бензин"
 
 Описать класс ElectricMotorCars, который наследуется от Cars. Реализовать метод
@@ -15,3 +15,24 @@ print_fuel_type, который будет печатать "Электриче�
 Создать объект класса HybridCars. Потренироваться вызывать методы через super,
 через имя класса. Просмотреть MRO
 """
+class Cars:
+    def print_fuel_type(self):
+        raise NotImplementedError
+
+
+class PetrolMotorCars(Cars):
+    def print_fuel_type(self):
+        print('Бензин')
+
+
+class ElectricMotorCars(Cars):
+    def print_fuel_type(self):
+        print('Электричество')
+
+class HybridCars(PetrolMotorCars, ElectricMotorCars):
+    def print_fuel_type(self):
+        super().print_fuel_type()
+        print('Бензин + электричество')
+
+hc = HybridCars()
+hc.print_fuel_type()
