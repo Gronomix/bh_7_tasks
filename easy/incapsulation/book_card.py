@@ -46,23 +46,34 @@ class BookCard:
         if not isinstance(new_val, str):
             raise TypeError('Ошибка')
 
+    @property
+    def num_pages(self):
+        return self._num_pages
+
+    @num_pages.setter
+    def num_pages(self, new_val):
+        if not isinstance(new_val, int):
+            if new_val <= 0:
+                raise TypeError('ошибка')
+
+    @property
+    def num_copies(self):
+        return self._num_copies
+
+    @num_copies.setter
+    def num_copies(self, new_val):
+        if not isinstance(new_val, int):
+            if new_val <= 0:
+                raise TypeError('ошибка')
 
     def __gt__(self, other):
-        if self._year > other.year:
-
+        if self._year > other._year:
             return True
         else:
             return False
 
-
-
-
     def __repr__(self,):
-        return f'Книги {self._year} "{self._author}, {self._title},{self._publishing_house}"'
-
-
-
-
+        return f'Книги {self._year} {self._author}, {self._title},{self._publishing_house}\n'
 
 
 book1 = BookCard('Shiller', 'Love is Deth', 'Монах Аристофан', 1981, 246, 4000)
