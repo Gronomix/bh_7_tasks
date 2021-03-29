@@ -37,6 +37,16 @@ class BookCard:
         self._num_pages = _num_pages
         self._num_copies = _num_copies
 
+    @property
+    def author(self):
+        return self._author
+
+    @author.setter
+    def author(self, new_val):
+        if not isinstance(new_val, str):
+            raise TypeError('Ошибка')
+
+
     def __gt__(self, other):
         if self._year > other.year:
 
@@ -48,7 +58,7 @@ class BookCard:
 
 
     def __repr__(self,):
-        return f'Книги отсортированы по году выпуска {self._year} "{self._author}, {self._title},{self._publishing_house}"'
+        return f'Книги {self._year} "{self._author}, {self._title},{self._publishing_house}"'
 
 
 
