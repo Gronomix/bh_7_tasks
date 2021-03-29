@@ -20,7 +20,7 @@ class Tomato:
 
     _index: int
     ripeness: str
-    state = {0: 'Отсутствует', 1: 'Цветение', 2: 'Зеленый', 3: 'Красный'}
+    states = {0: 'Отсутствует', 1: 'Цветение', 2: 'Зеленый', 3: 'Красный'}
 
     def __init__(self, index):
         self._index = index

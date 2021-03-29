@@ -15,27 +15,22 @@
 - метод **give_away_all()**, который будет возвращать список томатов и очищать его на кусте томатов после сбора урожая
 """
 
-
-
+from tomato import Tomato
 
 
 class TomatoBush:
 
-    # Создаем список из объектов класса Tomato
     def __init__(self, num):
-        self.tomatoes = [Tomato(index) for index in range(0, num-1)]
+        self.tomato_list = [Tomato(index) for index in range(0, num-1)]
 
-    # Переводим все томаты из списка на следующий этап созревания
     def grow_all(self):
-        for tomato in self.tomatoes:
+        for tomato in self.tomato_list:
             tomato.grow()
 
-    # Проверяем, все ли помидоры созрели
     def all_are_ripe(self):
-        return all([tomato.is_ripe() for tomato in self.tomatoes])
+        return all([tomato.is_ripe() for tomato in self.tomato_list])
 
-    # Собираем урожай
     def give_away_all(self):
-        self.tomatoes = []
+        self.tomato_list = []
 
 
