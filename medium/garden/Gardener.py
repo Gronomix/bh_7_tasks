@@ -22,9 +22,10 @@ class Gardener:
     name: str
     plant: list
 
-    def __init__(self, name, plant):
+    def __init__(self, name, plant, *args):
         self.name = name
         self._plant = plant
+
 
     def work(self):
         print('Садовник начал работу...')
