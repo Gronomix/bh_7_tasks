@@ -50,6 +50,8 @@ class LibraryReader(Person):
             return f'Петров В. В. вернул 4 книги'
 
 
+
+
 book_list = ['Энциклопедия', 'Приключения', 'Словарь']
 person = Person('Петров В.В.', 222875)
 lp = LibraryReader
