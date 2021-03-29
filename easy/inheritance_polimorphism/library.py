@@ -43,20 +43,24 @@ class LibraryReader(Person):
         self.id = id
         self.books = books
 
-    def take_book(self, books,  *args, **kwargs):
-        if len(books) > 3:
-            return f'{self.fio} вернул книги: {self.books}'
+    def take_book(self, books, *args, **kwargs):
+        if len(books) < 3:
+            return f'{self.fio} взял книги: {self.books}'
         else:
-            return f'Петров В. В. вернул 4 книги'
+            return f'Петров В. В. взял 4 книги'
+
+    def return_book(self, books, *args):
+        if len(books) > 0:
+            if len(books) <= 3:
+                return f'{self.fio} вернул книги: {self.books}'
+
+            elif len(books) > 3:
+                return f'Петров В. В. взял 4 книги'
+            else:
+                return f'Петров В. В. не брал Рассказы'
 
 
-
-
-book_list = ['Энциклопедия', 'Приключения', 'Словарь']
 person = Person('Петров В.В.', 222875)
-lp = LibraryReader
-lp.books = book_list
-print(lp.books)
-
-lp.take_book(1, books=book_list)
-print(lp.take_book)
+lb = LibraryReader('Pronic', 3434, 333,['Dict', 'Adventyre', 'Wikkip'])
+print(lb.return_book(['', '', '']))
+print(lb.take_book(['', '']))
