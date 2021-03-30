@@ -50,15 +50,15 @@ class Human:
         print(f'Получено {amount} денег! Денег на счету: {self._money}')
 
 
-    def _make_deal(self):
+    def _make_deal(self, house):
 
-        cost = House.final_cost
+        cost = house.final_cost
         if self._money > cost:
             self._money -= cost
             self._realty.append(House.address)
             return print(f'Дом {House.address} приобретен {self.name}')
         else:
-            return print('не достаточно дене')
+            return print('не достаточно денег')
 
 
 human = Human()
