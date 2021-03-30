@@ -19,7 +19,8 @@
   и если у человека достаточно денег, то списывает их с money и добавляет объект дома к self.realty
 
 """
-from house import House
+
+from medium.realt.house import House
 
 
 class Human:
@@ -27,21 +28,28 @@ class Human:
     name: str
     age: int
     _money: int
-    _realty: list
+    _realty: set
 
-    def __init__(self):
+    def __init__(
+            self,
+            name: str,
+            age: int,
+            _money: int = 0,
+            _realty: set = None):
+        if _realty is None:
+            self._realty = set()
+        else:
+            self._realty = _realty
 
-        self.name = 'Victor'
-        self.age = 30
+        self.name = name
+        self.age = age
 
-        self._money = 0
-        self._realty = []
+        self._money = _money
+
 
     def info(self):
-        print(f'Name: {self.name}')
-        print(f'Age: {self.age}')
-        print(f'Money: {self._money}')
-        print(f'House: {self._realty}')
+        print(f' {self.name} {self.age} [{self._money}]:\n' + '\n'.join(self._realty))
+
 
 
 
@@ -49,24 +57,26 @@ class Human:
         self._money += amount
         print(f'Получено {amount} денег! Денег на счету: {self._money}')
 
+    def decrease_cost(self, amount: int):
 
-    def _make_deal(self, house):
+        if self._money < amount:
+            raise ValueError
 
-        cost = house.final_cost
-        if self._money > cost:
-            self._money -= cost
-            self._realty.append(House.address)
-            return print(f'Дом {House.address} приобретен {self.name}')
         else:
-            return print('не достаточно денег')
+            self._money -= amount
+
+    def make_deal(self, house: House):
+        try:
+            self.decrease_cost(house.cost)
+        except ValueError as exc:
+            print(f'Сделка не проведена {exc}')
+        else:
+            self._realty.add(house)
 
 
-human = Human()
-human.earn_money(90)
-human.earn_money(90)
-human.earn_money(250)
-human._make_deal
-print(human._make_deal())
+
+
+
 
 
 

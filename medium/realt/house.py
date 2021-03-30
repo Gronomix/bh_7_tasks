@@ -27,26 +27,27 @@ class House:
         self.cost = cost
         self.address = address
 
-    def increase_cost(self, num):
+    def increase_cost(self, num: int):
 
         if num is not None:
             self.cost += num
 
             return self.cost
 
-    def decrease_cost(self, num):
+    def decrease_cost(self, num: int):
 
-        if num is not None:
+        if self.cost < num:
+            self.cost = 0
+        else:
             self.cost -= num
 
-            return self.cost
 
-    def final_cost(self) -> int:
-        cost = int(self.cost)
-        print(f'Финальная стоимость дома на {self.address}: {cost}')
-        return cost
+
+    #def final_cost(self) -> int:
+        #cost = int(self.cost)
+        #print(f'Финальная стоимость дома на {self.address}: {cost}')
+        #return cost
 
 
 house = House('Vashington str.', 35, 70)
 house.increase_cost(20)
-print(house.final_cost())

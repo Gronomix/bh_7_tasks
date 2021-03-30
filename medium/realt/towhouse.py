@@ -6,10 +6,10 @@
   self.area по умолчанию присваиваем 60
 """
 
-from house import House
+from medium.realt.house import House
 
 
 class Townhouse(House):
-    def __init__(self, cost):
-        super().__init__(cost)
-        self.cost = 60
+    def __init__(self, address: str,  cost):
+        super().__init__(address, 60, cost)
+
