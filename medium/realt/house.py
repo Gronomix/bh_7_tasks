@@ -22,9 +22,10 @@ class House:
     area: int
     cost: int
 
-    def __init__(self, area, cost):
+    def __init__(self, address, area, cost):
         self.area = area
         self.cost = cost
+        self.address = address
 
     def increase_cost(self, num):
 
@@ -40,12 +41,12 @@ class House:
 
             return self.cost
 
-    def final_price(self):
-        final_price = self.cost
-        print(f'Final price: {final_price}')
-        return final_price
+    def final_cost(self) -> int:
+        cost = int(self.cost)
+        print(f'Финальная стоимость дома на {self.address}: {cost}')
+        return cost
 
 
-house = House(35, 400)
+house = House('Vashington str.', 35, 70)
 house.increase_cost(20)
-print(house.final_price())
+print(house.final_cost())
