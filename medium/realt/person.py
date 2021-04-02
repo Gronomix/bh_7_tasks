@@ -72,6 +72,7 @@ class Human:
             print(f'Сделка не проведена {exc}')
         else:
             self._realty.add(house)
+            print(f'Дом {house.address} куплен')
 
 
 
