@@ -43,6 +43,12 @@ class Student:
         else:
             return False
 
+    def __ge__(self, other):
+        if self.average_score > 5:
+            return True
+        else:
+            return False
+
     def __repr__(self,):
         return f'Student {self.surname} {self.name} {self.group} {self.average_score}\n'
 
