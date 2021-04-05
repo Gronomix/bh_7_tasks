@@ -31,8 +31,6 @@ class Cat(Animals):
 
     def __init__(self, name, a_type):
         super(Cat, self).__init__(name, a_type)
-        self.name = name
-        self.a_type = a_type
 
     def says(self, name, a_type):
         print(f' {a_type} Кошка {name} говорит Мяу')
@@ -42,8 +40,6 @@ class Dog(Animals):
 
     def __init__(self, name, a_type):
         super(Dog, self).__init__(name, a_type)
-        self.name = name
-        self.a_type = a_type
 
     def says(self, name, a_type):
         print(f'{a_type} собака {name} говорит ГАВ')
@@ -53,8 +49,6 @@ class Cow(Animals):
 
     def __init__(self, name, a_type):
         super(Cow, self).__init__(name, a_type)
-        self.name = name
-        self.a_type = a_type
 
     def says(self, name, a_type):
         print(f' {a_type} Корова {name} говорит МУУУУ')
