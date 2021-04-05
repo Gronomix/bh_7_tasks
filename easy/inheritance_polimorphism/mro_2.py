@@ -44,7 +44,7 @@ class MFU(Scanner, Copier):
 
 device = Device()
 scaner = Scanner()
-scaner.process_doc('gggg')
+scaner.process_doc('Doc')
 copier = Copier()
 copier.process_doc("name")
 mfu = MFU()
