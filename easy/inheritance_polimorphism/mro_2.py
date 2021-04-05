@@ -24,38 +24,30 @@ class Device:
 
 class Scanner(Device):
 
-    name: str
-
-    def __init__(self, name):
-        self.name = name
-
     def process_doc(self, name):
-        print(f'Сканирую документ: {self.name}')
+        print(f'Сканирую документ: {name}')
 
 
 class Copier(Device):
-    name: str
-
-    def __init__(self, name):
-
-        self.name = name
 
     def process_doc(self, name):
-        super().process_doc()
-        print(f'делаю копию: {self.name}')
+
+        print(f'делаю копию: {name}')
 
 
 class MFU(Scanner, Copier):
-    
-    def __init__(self, name):
-        super(MFU, self).__init__(name)
-    
+
     def process_doc(self, name):
-        super().process_doc()
-        print(f'Сканирую, отправляю факс: {self.name}')
+        super(MFU, self).process_doc(name)
+        print(f'Сканирую, отправляю факс: {name}')
 
 
-mfu = MFU
-mfu.process_doc()
+device = Device()
+scaner = Scanner()
+scaner.process_doc('gggg')
+copier = Copier()
+copier.process_doc("name")
+mfu = MFU()
+mfu.process_doc('Docoment')
 
 
