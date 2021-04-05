@@ -50,11 +50,20 @@ class Counter:
         return self
 
     def __next__(self):
-        return self
+        self.value += 1
+        return self.value
 
 
 
 count = Counter()
+
+print(next(count))
+print(next(count))
+print(next(count))
+print(next(count))
+print(next(count))
+print(next(count))
+print(next(count))
 
 print(count.decrease())
 print(count.increase())
