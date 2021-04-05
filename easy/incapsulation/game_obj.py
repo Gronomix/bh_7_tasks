@@ -28,11 +28,13 @@ class GameObject:
         return self.y
 
     def move(self, delta_x, delta_y):
-        self._x = delta_x
-        self._y = delta_y
+        self._x += delta_x
+        self._y += delta_y
+        return self._x, self._y
 
 
-gameobj = GameObject(3, 4)
-gameobj.move(5, 6)
-print(gameobj)
+gameobj = GameObject(5, 6)
+gameobj.move(4, 5)
+
+print(gameobj.move(5, 6))
 
