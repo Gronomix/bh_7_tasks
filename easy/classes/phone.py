@@ -31,11 +31,11 @@ class Phone:
         self.year_of_issue = year_of_issue
 
     def receive_call(self, name):
-        print(f'Звонит {name}')
+        return f'Звонит {name} Сними трубку\n'
 
     def get_info(self, brand, model, year_of_issue):
         a = (brand, model, year_of_issue)
-        return print(a), print(self.brand + self.model + str(self.year_of_issue))
+        return f'{a},\n {self.brand}  {self.model}  {str(self.year_of_issue)}'
 
     def __str__(self):
         return f'\n Информация об устройстве:\n Бренд: {self.brand}\n Модель: {self.model}\n ' \
