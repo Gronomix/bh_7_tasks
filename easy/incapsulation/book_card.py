@@ -43,6 +43,7 @@ class BookCard:
 
     @author.setter
     def author(self, new_val):
+        self._author = new_val
         if not isinstance(new_val, str):
             raise TypeError('Ошибка')
 
@@ -52,9 +53,11 @@ class BookCard:
 
     @num_pages.setter
     def num_pages(self, new_val):
-        if not isinstance(new_val, int):
-            if new_val <= 0:
-                raise TypeError('ошибка')
+        if new_val != int and new_val <= 0:
+            raise TypeError('ошибка')
+        else:
+            self._num_pages = new_val
+            return self._num_pages
 
     @property
     def num_copies(self):
@@ -62,9 +65,11 @@ class BookCard:
 
     @num_copies.setter
     def num_copies(self, new_val):
-        if not isinstance(new_val, int):
-            if new_val <= 0:
-                raise TypeError('ошибка')
+        if new_val != int and new_val <= 0:
+            raise TypeError('ошибка')
+        else:
+            self._num_copies = new_val
+            return self._num_copies
 
     def __gt__(self, other):
         if self._year > other._year:
@@ -73,15 +78,23 @@ class BookCard:
             return False
 
     def __repr__(self,):
-        return f'Книги {self._year} {self._author}, {self._title},{self._publishing_house}\n'
+        return f'Книги {self._year} {self._author}, {self.num_pages}, {self.num_copies}, {self._title},' \
+               f'{self._publishing_house}\n'
 
 
 book1 = BookCard('Shiller', 'Love is Deth', 'Монах Аристофан', 1981, 246, 4000)
 book2 = BookCard('Pushkin', 'Письмо Няне', 'Mikki Maus Company', 1965, 24, 235)
 book3 = BookCard('Александ Дюма', 'Три Мушкетера', 'Подвальная фабрика имени Ким ИР Сена', 1956, 567, 784)
 book4 = BookCard('Жуль Верн', '20 000 лье под водой', 'Генеральный штаб подводной авиации', 1990, 543, 4)
-
+book4.num_copies = 66666666
+book4.num_pages = 55555
 book_list = [book1, book2, book3, book4]
 book_list.sort()
 print(book_list)
+
+
+
+
+
+
 
