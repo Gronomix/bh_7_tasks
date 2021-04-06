@@ -5,12 +5,6 @@
 После выполнения функции напечатать строку "Выполнено {func.__name__}"
 """
 
-class MetaClass(type):
-
-    def __new__(cls, *args, **kwargs):
-        new_class = super.__new__(mcs, name, basses, attr)
-
-
 def decorator(func):
     def wrapper(*args, **kwargs):
         print(f' Выполняем {func.__name__}; args {args}; kwargs {kwargs}')
@@ -20,25 +14,41 @@ def decorator(func):
     return wrapper
 
 
-def class_decor(cls):
-    call_attr = {k: v for k, v in cls.__dict__.items() if callable(v)}
-
-    for name, func in call_attr.items():
-        dec_func = decorator(func)
-        setattr(cls, name, dec_func)
+def class_decorator(cls):
+    functions = {name: func for name, func in cls.__dict__.items() if callable(func)}
+    for name, func in functions.items():
+        decorated = decorator(func)
+        setattr(cls, name, decorated)
     return cls
 
 
-@class_decor
-class SomeClass:
+class MetaClass(type):
 
-    def __init__(self, name):
-        self.name = name
+    def __new__(msc, *args, **kwargs):
+        new_cls = super.__new__(mcs, name, basses, attrs)
+        functions = {name: name for name, func in new_cls.__dict__.items() if callable(func)}
+        for name, func in functions.items():
+            decorated = decorator(func)
+            setattr(new_cls, name, decorated)
+        return new_cls
 
-    def some_method(self):
-        print('hi')
 
-    def some_method1(self):
-        print(' Woy')
+class ASD(metaclass=MetaClass):
 
-sc = SomeClass(1)
+    at = 125
+
+    def __init__(self):
+        self.a = 1
+
+    def some_func(self, some_arg=0):
+        pass
+
+
+
+
+asd = ASD()
+asd.some_func(1)
+
+
+
+
